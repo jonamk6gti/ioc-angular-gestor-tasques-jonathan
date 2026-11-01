@@ -1,0 +1,18 @@
+<section class="detall" aria-labelledby="detall-titol" aria-live="polite">
+  @if (tasca) {
+    <h2 id="detall-titol">{{ tasca.titol }}</h2>
+    <app-categoria-etiqueta [categoria]="tasca.categoria" [prioritaria]="!!tasca.prioritaria" />
+    <p>{{ tasca.descripcio }}</p>
+    <dl>
+      <dt>Data límit</dt>
+      <dd>{{ tasca.dataLimit | date: 'EEEE, dd/MM/yyyy' }}</dd>
+      <dt>Hores estimades</dt>
+      <dd>{{ tasca.horesEstimades | number: '1.0-1' }} h</dd>
+      <dt>Identificador</dt>
+      <dd>#{{ tasca.id }}</dd>
+    </dl>
+  } @else {
+    <h2 id="detall-titol">Detall de la tasca</h2>
+    <p>Selecciona una tasca de la llista per veure'n el detall.</p>
+  }
+</section>

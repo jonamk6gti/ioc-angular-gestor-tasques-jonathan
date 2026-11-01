@@ -4,11 +4,12 @@ import { CATEGORIES_TASCA, FiltresTasca, Tasca } from './models/tasca.model';
 import { TASQUES_MOCK } from './data/tasques.mock';
 import { FiltresTasques } from './components/filtres-tasques/filtres-tasques.component';
 import { TascaLlista } from './components/tasca-llista/tasca-llista.component';
+import { TascaDetall } from './components/tasca-detall/tasca-detall.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FiltresTasques, TascaLlista],
+  imports: [RouterOutlet, FiltresTasques, TascaLlista, TascaDetall],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -27,6 +28,10 @@ export class App {
       const coincideixCategoria = !filtres.categoria || tasca.categoria === filtres.categoria;
       return coincideixText && coincideixCategoria;
     });
+
+    if (this.tascaSeleccionada && !this.tasquesFiltrades.includes(this.tascaSeleccionada)) {
+      this.tascaSeleccionada = null;
+    }
   }
 
   restablirFiltres(): void {

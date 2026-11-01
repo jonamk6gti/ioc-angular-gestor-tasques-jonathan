@@ -10,16 +10,19 @@
     (restablir)="restablirFiltres()"
   />
 
-  <section aria-labelledby="llista-titol">
-    <h2 id="llista-titol">Llistat de tasques</h2>
-    @if (tascaSeleccionada) {
-      <p>Tasca seleccionada: <strong>{{ tascaSeleccionada.titol }}</strong></p>
-    }
-    <app-tasca-llista
-      [tasques]="tasquesFiltrades"
-      [idSeleccionada]="tascaSeleccionada?.id ?? null"
-      (seleccionar)="seleccionarTasca($event)"
-    />
-  </section>
+  <div class="layout">
+    <section class="layout__llista" aria-labelledby="llista-titol">
+      <h2 id="llista-titol">Llistat de tasques</h2>
+      <app-tasca-llista
+        [tasques]="tasquesFiltrades"
+        [idSeleccionada]="tascaSeleccionada?.id ?? null"
+        (seleccionar)="seleccionarTasca($event)"
+      />
+    </section>
+
+    <aside class="layout__detall">
+      <app-tasca-detall [tasca]="tascaSeleccionada" />
+    </aside>
+  </div>
 </main>
 <router-outlet />

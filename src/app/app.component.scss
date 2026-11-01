@@ -15,8 +15,20 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 1rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.5rem;
 
   h2 {
     margin-top: 0;
   }
+}
+
+.layout__detall {
+  position: sticky;
+  top: 1rem;
 }
