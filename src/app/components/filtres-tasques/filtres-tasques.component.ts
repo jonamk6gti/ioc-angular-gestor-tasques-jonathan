@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CategoriaTasca, FiltresTasca } from '../../models/tasca.model';
 
 @Component({
@@ -13,6 +13,7 @@ export class FiltresTasques {
   @Output() aplicar = new EventEmitter<FiltresTasca>();
   @Output() restablir = new EventEmitter<void>();
 
+  readonly longitudMinima = 3;
   text = '';
   categoria: CategoriaTasca | '' = '';
 
@@ -20,9 +21,8 @@ export class FiltresTasques {
     this.aplicar.emit({ text: this.text.trim(), categoria: this.categoria });
   }
 
-  onRestablir(): void {
-    this.text = '';
-    this.categoria = '';
+  onRestablir(form: NgForm): void {
+    form.resetForm({ text: '', categoria: '' });
     this.restablir.emit();
   }
 }

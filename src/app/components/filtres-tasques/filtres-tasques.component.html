@@ -1,7 +1,21 @@
-<form class="filtres" (ngSubmit)="onAplicar()">
+<form class="filtres" #filtresForm="ngForm" (ngSubmit)="onAplicar()" novalidate>
   <div class="camp">
     <label for="filtre-text">Text de cerca</label>
-    <input id="filtre-text" name="text" type="text" [(ngModel)]="text" />
+    <input
+      id="filtre-text"
+      name="text"
+      type="text"
+      [(ngModel)]="text"
+      #textModel="ngModel"
+      required
+      [minlength]="longitudMinima"
+      aria-describedby="filtre-text-ajuda"
+      [attr.aria-invalid]="textModel.invalid && (textModel.dirty || textModel.touched)"
+    />
+    <small id="filtre-text-ajuda">Mínim {{ longitudMinima }} caràcters.</small>
+    @if (textModel.errors?.['minlength'] && (textModel.dirty || textModel.touched)) {
+      <p class="error" role="alert">El text de cerca ha de tenir com a mínim {{ longitudMinima }} caràcters.</p>
+    }
   </div>
 
   <div class="camp">
@@ -15,7 +29,7 @@
   </div>
 
   <div class="accions">
-    <button type="submit" class="boto boto--primari">Aplicar filtres</button>
-    <button type="button" class="boto" (click)="onRestablir()">Restablir filtres</button>
+    <button type="submit" class="boto boto--primari" [disabled]="filtresForm.invalid">Aplicar filtres</button>
+    <button type="button" class="boto" (click)="onRestablir(filtresForm)">Restablir filtres</button>
   </div>
 </form>
