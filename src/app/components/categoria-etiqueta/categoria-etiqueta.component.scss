@@ -1,0 +1,22 @@
+:host {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.etiqueta--estudi { background: #dbeafe; color: #1e3a8a; }
+.etiqueta--practica { background: #dcfce7; color: #14532d; }
+.etiqueta--lliurament { background: #fee2e2; color: #7f1d1d; }
+.etiqueta--personal { background: #f3e8ff; color: #581c87; }
+.etiqueta--reunio { background: #fef3c7; color: #78350f; }
+.etiqueta--prioritaria { background: #004080; color: #fff; }

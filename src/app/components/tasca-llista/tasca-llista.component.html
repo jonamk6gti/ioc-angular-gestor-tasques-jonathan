@@ -1,0 +1,19 @@
+<p class="comptador" role="status" aria-live="polite">
+  {{ tasques.length }} {{ tasques.length === 1 ? 'tasca trobada' : 'tasques trobades' }}
+</p>
+
+@if (tasques.length > 0) {
+  <ul class="llista">
+    @for (tasca of tasques; track tasca.id) {
+      <li>
+        <app-tasca-targeta
+          [tasca]="tasca"
+          [seleccionada]="tasca.id === idSeleccionada"
+          (seleccionar)="onSeleccionar($event)"
+        />
+      </li>
+    }
+  </ul>
+} @else {
+  <p class="sense-resultats">No s'ha trobat cap tasca amb aquests filtres.</p>
+}

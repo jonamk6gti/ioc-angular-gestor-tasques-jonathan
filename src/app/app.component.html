@@ -1,19 +1,25 @@
-<main class="container">
+<header class="capcalera">
   <h1>{{ appName }}</h1>
-
   <p>Autor: Jonathan | Aplicació per gestionar les tasques diàries del curs d'Angular.</p>
+</header>
 
-  <section class="card">
-    <h3>Dades del Projecte</h3>
-    <p>Versió: Angular 22 | Entorn: Standalone & SCSS</p>
+<main class="container">
+  <app-filtres-tasques
+    [categories]="categories"
+    (aplicar)="aplicarFiltres($event)"
+    (restablir)="restablirFiltres()"
+  />
+
+  <section aria-labelledby="llista-titol">
+    <h2 id="llista-titol">Llistat de tasques</h2>
+    @if (tascaSeleccionada) {
+      <p>Tasca seleccionada: <strong>{{ tascaSeleccionada.titol }}</strong></p>
+    }
+    <app-tasca-llista
+      [tasques]="tasquesFiltrades"
+      [idSeleccionada]="tascaSeleccionada?.id ?? null"
+      (seleccionar)="seleccionarTasca($event)"
+    />
   </section>
-
-  <aside>
-    <p>Nota: Aquest projecte s'anirà ampliant al llarg de les unitats del semestre.</p>
-  </aside>
-
-  <div class="footer-status">
-    <strong>Projecte base llest </strong>
-  </div>
 </main>
 <router-outlet />

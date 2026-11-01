@@ -1,0 +1,11 @@
+<button
+  type="button"
+  class="targeta"
+  [class.targeta--seleccionada]="seleccionada"
+  [attr.aria-pressed]="seleccionada"
+  (click)="onSeleccionar()"
+>
+  <span class="targeta__titol">{{ tasca.titol }}</span>
+  <app-categoria-etiqueta [categoria]="tasca.categoria" [prioritaria]="!!tasca.prioritaria" />
+  <span class="targeta__data">Data límit: {{ tasca.dataLimit | date: 'dd/MM/yyyy' }}</span>
+</button>

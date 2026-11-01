@@ -1,0 +1,66 @@
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f4f6f8;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+}
+
+.camp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 220px;
+
+  input,
+  select {
+    padding: 0.5rem;
+    font: inherit;
+    border: 1px solid #888;
+    border-radius: 4px;
+  }
+
+  input[aria-invalid='true'] {
+    border-color: #b91c1c;
+  }
+
+  small {
+    color: #555;
+  }
+}
+
+.error {
+  margin: 0;
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+.accions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-self: flex-end;
+}
+
+.boto {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  border: 1px solid #004080;
+  border-radius: 4px;
+  background: #fff;
+  color: #004080;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.boto--primari {
+  background: #004080;
+  color: #fff;
+}

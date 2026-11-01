@@ -1,0 +1,20 @@
+.comptador {
+  margin: 0 0 0.75rem;
+  font-weight: bold;
+}
+
+.llista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sense-resultats {
+  padding: 1rem;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+}
