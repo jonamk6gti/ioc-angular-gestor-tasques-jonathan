@@ -1,9 +1,11 @@
+<a class="salt-contingut" href="#contingut-principal">Salta al contingut principal</a>
+
 <header class="capcalera">
   <h1>{{ appName }}</h1>
   <p>Autor: Jonathan | Aplicació per gestionar les tasques diàries del curs d'Angular.</p>
 </header>
 
-<main class="container">
+<main id="contingut-principal" class="container" tabindex="-1">
   <app-filtres-tasques
     [categories]="categories"
     (aplicar)="aplicarFiltres($event)"
